@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+    {% block stylesheet %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    {% endblock %}
+
+{% block maincontent %}
+<div class="container-fluid">
+<form class="login-body" method="POST">
+    {% with messages = get_flashed_messages(with_categories = True) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        {% if category == "error" %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {% else %}
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {% endif %}
+
+                          {{ message }}
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+{% endwith %}
+    <h1 class="h-center h2 mb-3 font-weight-normal">Log in</h1>
+    {{ form.hidden_tag() }}
+    {{ form.username(class="form-login", placeholder="Username") }}<br><br>
+    {{ form.password(class="form-login", placeholder="Password") }} <br><br>
+    {{ form.login(class="form-login btn btn-large btn-dark sign-in-button") }} <br>
+    <p style="text-align: center;">Not registered? <a href="{{ url_for('auth.user_register') }}">Register here!</a>
+</form>
+</div>
+{% endblock %}
+

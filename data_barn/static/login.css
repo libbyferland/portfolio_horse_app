@@ -1,0 +1,51 @@
+
+.h-center {
+  text-align: center;
+  align-items: center;
+}
+.login-body {
+  align-items: left;
+  justify-content: center;
+  padding: 15%;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+}
+
+.form-login {
+  width: 100%;
+  padding: 10px;
+  margin: 0 auto;
+
+}
+.form-login .checkbox {
+  font-weight: 400;
+}
+.form-login .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-login .form-control:focus {
+  z-index: 2;
+}
+.form-login input[type="text"] {
+  margin-bottom: -1px;
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
+  border-bottom-right-radius: 1px;
+  border-bottom-left-radius: 1px;
+}
+.form-login input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.sign-in-button {
+  background-color: #014421;
+}
+
+

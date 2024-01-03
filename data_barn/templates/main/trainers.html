@@ -1,0 +1,227 @@
+{% extends 'main/index.html' %}
+{% block dataview %}
+<div class="container-fluid">
+  <div class="row flex-xl-nowrap">
+
+    <div class="col-12 col-md-5 col-xl-3 bd-sidebar">
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom" style="margin-left: 30%;">
+<ul class="list-group list-group-horizontal flex-fill mb-2 mb-md-0">
+<li class="list-group-item">View by</li>
+
+<li class="dropdown list-group-item">
+  <a class="dropdown-toggle flex-fill" data-toggle="dropdown" href="#NotImplemented">Year</a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">All time</a></li>
+  </ul>
+  </li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+{% if measure == "trainers" %}
+<div class="row flex-xl-nowrap">
+<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main" style="margin-left: 20%;">
+<h1 style="text-align: center;">Top Trainers</h1>
+  <h2 style="text-align: center;">All time</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Trainer(s)</th>
+        <th scope="col">Wins</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for wins in trainers["all_time"] %}
+      <tr>
+        <th scope="row">{% for train in trainers["all_time"][wins] %} {{ train.first_name }} {{ train.last_name }} <br> {% endfor %} </th>
+        <td>{{ wins }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+<div class="accordion" id="measuresAccordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="surfaceHeading">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSurfaces" aria-expanded="false" aria-controls="collapseSurfaces">
+        Top Trainers by Surface
+      </button>
+    </h2>
+    <div id="collapseSurfaces" class="accordion-collapse collapse" aria-labelledby="surfaceHeading" data-bs-parent="#measuresAccordion">
+      <div class="accordion-body">
+        <h2 style="text-align: center;">Turf</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Trainer(s)</th>
+        <th scope="col">Wins</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for wins in trainers["surface"]["Turf"] %}
+      <tr>
+        <th scope="row">{% for train in trainers["surface"]["Turf"][wins] %} {{ train.first_name }} {{ train.last_name }}<br> {% endfor %} </th>
+        <td>{{ wins }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h2 style="text-align: center;">Polytrack</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Trainer(s)</th>
+        <th scope="col">Wins</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for wins in trainers["surface"]["Polytrack"] %}
+      <tr>
+        <th scope="row">{% for train in trainers["surface"]["Polytrack"][wins] %} {{ train.first_name }} {{ train.last_name }}<br> {% endfor %} </th>
+        <td>{{ wins }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="raceTypeHeading">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#raceTypeCollapse" aria-expanded="false" aria-controls="raceTypeCollapse">
+        Top Trainers by Race Type
+      </button>
+    </h2>
+    <div id="raceTypeCollapse" class="accordion-collapse collapse" aria-labelledby="raceTypeHeading" data-bs-parent="#measuresAccordion">
+      <div class="accordion-body">
+        <h2 style="text-align: center;">Maiden</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Trainer(s)</th>
+        <th scope="col">Wins</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for wins in trainers["race_type"]["maiden"] %}
+      <tr>
+        <th scope="row">{% for train in trainers["race_type"]["maiden"][wins] %} {{ train.first_name }} {{ train.last_name }}<br> {% endfor %} </th>
+        <td>{{ wins }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h2 style="text-align: center;">Claiming</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Trainer(s)</th>
+        <th scope="col">Wins</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for wins in trainers["race_type"]["claim"] %}
+      <tr>
+        <th scope="row">{% for train in trainers["race_type"]["claim"][wins] %} {{ train.first_name }} {{ train.last_name }}<br> {% endfor %} </th>
+        <td>{{ wins }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h2 style="text-align: center;">Allowance</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Trainer(s)</th>
+        <th scope="col">Wins</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for wins in trainers["race_type"]["allowance"] %}
+      <tr>
+        <th scope="row">{% for train in trainers["race_type"]["allowance"][wins] %} {{ train.first_name }} {{ train.last_name }}<br> {% endfor %} </th>
+        <td>{{ wins }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h2 style="text-align: center;">Stakes</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Trainer(s)</th>
+        <th scope="col">Wins</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for wins in trainers["race_type"]["stakes"] %}
+      <tr>
+        <th scope="row">{% for train in trainers["race_type"]["stakes"][wins] %} {{ train.first_name }} {{ train.last_name }}<br> {% endfor %} </th>
+        <td>{{ wins }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="distanceHeading">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDistance" aria-expanded="false" aria-controls="collapseDistance">
+        Top Trainers by Distance
+      </button>
+    </h2>
+    <div id="collapseDistance" class="accordion-collapse collapse" aria-labelledby="distanceHeading" data-bs-parent="#measuresAccordion">
+      <div class="accordion-body">
+     <h2 style="text-align: center;">Sprint</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Trainer(s)</th>
+        <th scope="col">Wins</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for wins in trainers["distance"]["sprint"] %}
+      <tr>
+        <th scope="row">{% for train in trainers["distance"]["sprint"][wins] %} {{ train.first_name }} {{ train.last_name }}<br> {% endfor %} </th>
+        <td>{{ wins }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+    <h2 style="text-align: center;">Route</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Trainer(s)</th>
+        <th scope="col">Wins</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for wins in trainers["distance"]["route"] %}
+      <tr>
+        <th scope="row">{% for train in trainers["distance"]["route"][wins] %} {{ train.first_name }} {{ train.last_name }}<br> {% endfor %} </th>
+        <td>{{ wins }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+{% endif %}
+</div>
+</div>
+{% endblock %}
