@@ -44,7 +44,7 @@ Data is stored in a PostgreSQL database.  User registration and authentication i
 └── requirements.txt
 ```
 ### Required to Run App
-`config.py` and the files in the `data_barn` directory are required for the app.  **Please note:*** The app also requires database migrations, which will need to be initialized with the database as part of app setup.
+`config.py` and the files in the `data_barn` directory are required for the app.  **Please note:** The app also requires database migrations, which will need to be initialized with the database as part of app setup.
 
 ### Misc. and Helpers
 Files in the `data` folder include the original Keeneland data in a CSV file and two SQL files, one with data and one with schemas only that can be used to recreate the database.  The `load_data.py` file included contains a helper class to batch load the original CSV file into an existing database.  This was meant to be used from within the Flask shell.
