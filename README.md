@@ -43,7 +43,7 @@ Data is stored in a PostgreSQL database.  User registration and authentication i
 ├── load_data.py
 └── requirements.txt
 ```
-### Required to run app
+### Required to Run App
 `config.py` and the files in the `data_barn` directory are required for the app.  **Please note:*** The app also requires database migrations, which will need to be initialized with the database as part of app setup.
 
 ### Misc. and Helpers
